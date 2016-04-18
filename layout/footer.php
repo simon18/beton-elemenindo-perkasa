@@ -17,7 +17,7 @@
 <script src="assets/plugins/respond.min.js"></script>
 <script src="assets/plugins/excanvas.min.js"></script> 
 <![endif]-->
-<script src="<?php echo $baseURL; ?>assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+
 <script src="<?php echo $baseURL; ?>assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 <script src="<?php echo $baseURL; ?>assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<?php echo $baseURL; ?>assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
@@ -52,6 +52,16 @@
     });
 </script>
 <!-- END CORE PLUGINS -->
+
+<script type="text/javascript" src="<?php echo $baseURL; ?>assets/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="<?php echo $baseURL; ?>assets/plugins/data-tables/jquery.dataTables.js"></script>
+<script type="text/javascript" src="<?php echo $baseURL; ?>assets/plugins/data-tables/DT_bootstrap.js"></script>
+<!-- page script DATA TABLES-->
+<script> 
+  $(function () {
+    $('#dataTable').DataTable();
+  });
+</script>
 <script src="<?php echo $baseURL; ?>assets/scripts/core/app.js"></script>
 <script>
 jQuery(document).ready(function() {    

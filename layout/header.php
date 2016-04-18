@@ -12,6 +12,15 @@
   <link href="<?php echo $baseURL; ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
   <!-- END GLOBAL MANDATORY STYLES -->
+  <link rel="stylesheet" type="text/css" href="<?php echo $baseURL; ?>assets/plugins/bootstrap-datepicker/css/datepicker.css"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $baseURL; ?>assets/plugins/bootstrap-toastr/toastr.min.css"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $baseURL; ?>assets/plugins/select2/select2.css"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $baseURL; ?>assets/plugins/select2/select2-metronic.css"/>
+  <link rel="stylesheet" href="<?php echo $baseURL; ?>assets/plugins/data-tables/DT_bootstrap.css"/>
+  <link href="<?php echo $baseURL; ?>assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
+  <link href="<?php echo $baseURL; ?>assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
+  <link href="<?php echo $baseURL; ?>assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
+  <link href="<?php echo $baseURL; ?>assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css"/>
   <!-- BEGIN THEME STYLES -->
   <link href="<?php echo $baseURL; ?>assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/css/style.css" rel="stylesheet" type="text/css"/>
@@ -19,6 +28,7 @@
   <link href="<?php echo $baseURL; ?>assets/css/plugins.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
   <link href="<?php echo $baseURL; ?>assets/css/custom.css" rel="stylesheet" type="text/css"/>
+  <script src="<?php echo $baseURL; ?>assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
   <!-- END THEME STYLES -->
   <link rel="shortcut icon" href="favicon.png"/>
   <style type="text/css">
@@ -83,6 +93,9 @@
     bottom : 0;
     right : 0;
     top : 0;
+    }
+    .asterisk{
+      color: red;
     }
   </style>
 </head>
