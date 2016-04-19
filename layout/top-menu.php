@@ -1,5 +1,5 @@
 <!-- BEGIN BODY -->
-<body class="page-header-fixed page-boxed">
+<body class="page-boxed">
 <!-- Image Preload //-->
 <div id="envor-preload">
   <span>Now loading.<br>Please wait.</span>
@@ -7,7 +7,7 @@
   <p></p>
 </div>
 <!-- BEGIN HEADER -->
-<div class="header navbar navbar-fixed-top">
+<div class="header navbar">
   <!-- BEGIN TOP NAVIGATION BAR -->
   <div class="header-inner container">
     <!-- BEGIN LOGO -->
@@ -27,7 +27,7 @@
         <a href="layout_boxed_page.html#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
           <img alt="" src="assets/img/profile.jpg"/>
           <span class="username">
-             Ahmad Sopian (Admin)
+             <?php echo $_SESSION['first_name']." ".$_SESSION['last_name']." (".ucwords($_SESSION['role']).")"; ?>
           </span>
           <i class="fa fa-angle-down"></i>
         </a>
@@ -38,7 +38,7 @@
             </a>
           </li>
           <li>
-            <a href="login.html">
+            <a href="logout-code.php">
               <i class="fa fa-sign-out"></i> Log Out
             </a>
           </li>

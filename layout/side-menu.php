@@ -61,7 +61,7 @@
             </a>
           </li>
           <li class="start ">
-            <a href="logout">
+            <a href="logout-code.php">
               <i class="fa fa-sign-out"></i>
               <span class="title">
                 Keluar
