@@ -1,9 +1,6 @@
-<?php
-	koneksi_buka();
-?>
 <div class="table-toolbar">
 	<div class="btn-group">
-		<a class="btn blue add" data-toggle="modal" href="#dialog-user">
+		<a class="btn blue add" data-toggle="modal" id="0" href="#dialog-user">
 		Tambah User <i class="fa fa-plus"></i>
 		</a>
 	</div>
@@ -12,69 +9,50 @@
 		</button>
 		<ul class="dropdown-menu pull-right">
 			<li>
-				<a href="export_file/export_pdf/kontrakan">
+				<a href="#">
 					<i class="fa fa-file-pdf-o"></i> Save as PDF
 				</a>
 			</li>
 			<li>
-				<a href="export_file/export_excel/kontrakan">
+				<a href="#">
 					<i class="fa fa-file-excel-o"></i> Export to Excel
 				</a>
 			</li>
 		</ul>
 	</div>
 </div>
-<div class="table-responsive">
-	<table class="table table-bordered table-hover" id="dataTable">
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>Role</th>
-				<th>Username</th>
-				<th>FirstName</th>
-				<th>LastName</th>
-				<th>Email</th>
-				<th>Aksi</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php
-				$sql = "SELECT * FROM users";
-				$query = mysql_query($sql);
-				$i = 0;
-				while($data = mysql_fetch_assoc($query))
-				{
-			?>
-			<tr>
-				<td><?php echo ($i+1) ?></td>
-				<td><?php echo $data['role'] ?></td>
-				<td><?php echo $data['username'] ?></td>
-				<td><?php echo $data['first_name'] ?></td>
-				<td><?php echo $data['last_name'] ?></td>
-				<td><?php echo $data['email'] ?></td>
-				<td>
-					<a href="#dialog-user" id="<?php echo $data['id_user'] ?>" class="update" data-toggle="modal">
-						<i class="fa fa-pencil"></i>
-					</a>
-					<a href="#" id="<?php echo $data['id_user'] ?>" class="hapus">
-						<i class="fa fa-trash"></i>
-					</a>
-				</td>
-			</tr>
-			<?php
-				$i++;
-			}
-			?>
-		</tbody>
-	</table>
+<div id="data-user">
+	<!-- CONTENT GOES HERE -->
 </div>
+<div id='loader-image' class="display-none"><img src='<?php echo $baseURL; ?>assets/img/ajax_loading.gif' /></div>
 <script type="text/javascript">
+	$('#loader-image').show();
+  	showUser();
+  	// clicking the 'read store' button
+	  $('#read-store').click(function(){
+	      // show a loader img
+	      $('#loader-image').show();
+	      showUser();
+	  });
+	function showUser(){
+           
+	      // fade out effect first
+	      $('#data-user').fadeOut('fast', function(){
+	          $('#data-user').load('<?php echo $baseURL; ?>layout/modul/user/user-read.php', function(){
+	              // hide loader image
+	              $('#loader-image').hide(); 
+	               
+	              // fade in effect
+	              $('#data-user').fadeIn('fast');
+	          });
+	      });
+    }
 	$(document).ready(function(){
          
         // deklarasikan variabel
         var id_user = 0;
         var main = "<?php echo $baseURL; ?>layout/modul/user/user-read.php";
-         
+     	// $("#data-user").load(main);
         // ketika tombol ubah/tambah di tekan
         $('.add, .update').live("click", function(){
              
@@ -96,51 +74,70 @@
             });
         });
          
-        // ketika tombol hapus ditekan
-        $('.hapus').live("click", function(){
+        // ketika tombol simpan ditekan
+        $("#simpan-user").bind("click", function(event) {
             var url = "<?php echo $baseURL; ?>layout/modul/user/user-code.php";
-            // ambil nilai id dari tombol hapus
-            id_user = this.id;
-             
-            // tampilkan dialog konfirmasi
-            var answer = confirm("Apakah anda ingin mengghapus data ini?");
-             
-            // ketika ditekan tombol ok
-            if (answer) {
-                // mengirimkan perintah penghapusan ke berkas transaksi.input.php
-                $.post(url, {hapus: id_user} ,function() {
-                    // tampilkan data mahasiswa yang sudah di perbaharui
-                    // ke dalam <div id="data-mahasiswa"></div>
-                    var table = $('#dataTable').DataTable();
-					table.ajax.reload();
-                });
-            }
-        });
-         
-        // // ketika tombol simpan ditekan
-        // $("#simpan-mahasiswa").bind("click", function(event) {
-        //     var url = "mahasiswa.input.php";
  
-        //     // mengambil nilai dari inputbox, textbox dan select
-        //     var v_nim = $('input:text[name=nim]').val();
-        //     var v_nama = $('input:text[name=nama]').val();
-        //     var v_alamat = $('textarea[name=alamat]').val();
-        //     var v_kelas = $('select[name=kelas]').val();
-        //     var v_status = $('select[name=status]').val();
+            // mengambil nilai dari inputbox, textbox dan select
+            var v_role = $('select[name=irole]').val();
+            var v_username = $('input:text[name=iusername]').val();
+            var v_password = $('input[name=ipassword]').val();
+            var v_first_name = $('input:text[name=ifirst_name]').val();
+            var v_last_name = $('input:text[name=ilast_name]').val();
+            var v_email = $('input[name=iemail]').val();
+            // mengirimkan data ke berkas transaksi.input.php untuk di proses
+            $.post(url, {role: v_role, username: v_username, password: v_password, first_name: v_first_name, last_name: v_last_name, email: v_email, id_user: id_user} ,function() {
+                // tampilkan data mahasiswa yang sudah di perbaharui
+                // ke dalam <div id="data-mahasiswa"></div>
+                $("#data-user").load(main);
  
-        //     // mengirimkan data ke berkas transaksi.input.php untuk di proses
-        //     $.post(url, {nim: v_nim, nama: v_nama, alamat: v_alamat, kelas: v_kelas, status: v_status, id: id_user} ,function() {
-        //         // tampilkan data mahasiswa yang sudah di perbaharui
-        //         // ke dalam <div id="data-mahasiswa"></div>
-        //         $("#data-mahasiswa").load(main);
- 
-        //         // sembunyikan modal dialog
-        //         $('#dialog-mahasiswa').modal('hide');
+                // sembunyikan modal dialog
+                $('#dialog-user').modal('hide');
                  
-        //         // kembalikan judul modal dialog
-        //         $("#myModalLabel").html("Tambah Data Mahasiswa");
-        //     });
-        // });
+                // kembalikan judul modal dialog
+                $(".modal-title").html("Tambah Data User");
+            });
+        });
+    });
+
+	// HAPUS
+	$(document).on('click', '.hapus', function(){
+        var url = "<?php echo $baseURL; ?>layout/modul/user/user-code.php";
+        // ambil nilai id dari tombol hapus
+        id_user = this.id;
+         
+        // tampilkan dialog konfirmasi
+        swal(
+	      {
+	        title: 'Apakah anda yakin?',
+	        text: "Semua data yang berhubungan dengan store ini akan terhapus!",
+	        type: 'warning',
+	        showCancelButton: true,
+	        confirmButtonColor: '#3085d6',
+	        cancelButtonColor: '#d33',
+	        confirmButtonText: 'Ya',
+	        cancelButtonText: 'Tidak',
+	        confirmButtonClass: 'btn btn-success btn-flat btn-xs',
+	        cancelButtonClass: 'btn btn-danger btn-flat btn-xs',
+	        closeOnConfirm: false,
+	        closeOnCancel: true
+	      },
+	      function(isConfirm) {
+	        if (isConfirm) {
+	        	swal.disableButtons();
+		          setTimeout(function() {
+		            swal('Terhapus','','success');
+		          }, 500)
+	          // mengirimkan perintah penghapusan ke berkas transaksi.input.php
+                $.post(url, {hapus: id_user} ,function() {
+                    // show loader image
+		            $('#loader-image').show();
+		            // reload the store list
+		            showUser();
+                });
+	        }
+	      }
+	    );
     });
 </script>
 
@@ -156,13 +153,10 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn default" data-dismiss="modal">Batal</button>
-					<button type="submit" class="btn blue">Simpan</button>
+					<button type="button" class="btn blue" id="simpan-user">Simpan</button>
 				</div>
 		</div>
 		<!-- /.modal-content -->
 	</div>
 	<!-- /.modal-dialog -->
 </div>
-<?php
-	koneksi_tutup();
-?>

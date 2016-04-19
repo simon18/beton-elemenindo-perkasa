@@ -53,15 +53,14 @@
 </script>
 <!-- END CORE PLUGINS -->
 
+<!-- DATA TABLES -->
 <script type="text/javascript" src="<?php echo $baseURL; ?>assets/plugins/select2/select2.min.js"></script>
 <script type="text/javascript" src="<?php echo $baseURL; ?>assets/plugins/data-tables/jquery.dataTables.js"></script>
 <script type="text/javascript" src="<?php echo $baseURL; ?>assets/plugins/data-tables/DT_bootstrap.js"></script>
-<!-- page script DATA TABLES-->
-<script> 
-  $(function () {
-    $('#dataTable').DataTable();
-  });
-</script>
+
+
+<!-- SWEET ALERT -->
+<script type="text/javascript" src="<?php echo $baseURL; ?>assets/plugins/sweetalert/sweetalert2.min.js"></script>
 <script src="<?php echo $baseURL; ?>assets/scripts/core/app.js"></script>
 <script>
 jQuery(document).ready(function() {    

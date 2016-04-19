@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 <head>
   <title>PT. Beton Elemenindo Perkasa</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +21,7 @@
   <link href="<?php echo $baseURL; ?>assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css"/>
+  <link href="<?php echo $baseURL; ?>assets/plugins/sweetalert/sweetalert2.css" rel="stylesheet" type="text/css"/>
   <!-- BEGIN THEME STYLES -->
   <link href="<?php echo $baseURL; ?>assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/css/style.css" rel="stylesheet" type="text/css"/>
@@ -28,7 +29,8 @@
   <link href="<?php echo $baseURL; ?>assets/css/plugins.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
   <link href="<?php echo $baseURL; ?>assets/css/custom.css" rel="stylesheet" type="text/css"/>
-  <script src="<?php echo $baseURL; ?>assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+  <script src="<?php echo $baseURL; ?>assets/plugins/jQuery-2.2.0.min.js" type="text/javascript"></script>
+  
   <!-- END THEME STYLES -->
   <link rel="shortcut icon" href="favicon.png"/>
   <style type="text/css">

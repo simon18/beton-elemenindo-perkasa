@@ -27,7 +27,7 @@
         <a href="layout_boxed_page.html#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
           <img alt="" src="assets/img/profile.jpg"/>
           <span class="username">
-             Ahmad Sopian (Administrator)
+             Ahmad Sopian (Admin)
           </span>
           <i class="fa fa-angle-down"></i>
         </a>
