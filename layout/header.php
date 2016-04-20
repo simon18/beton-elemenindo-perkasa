@@ -59,7 +59,7 @@
       text-align: center;
       font-size: 64px;
       border-radius: 200px;
-      color: #DD4B39;
+      color: #0362FD;
     }
     #envor-preload span {
       position: absolute;

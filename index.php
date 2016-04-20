@@ -61,14 +61,15 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN LOGIN -->
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
-	<form class="login-form" action="login-code.php" method="post">
+	<form class="login-form" action="login-code.php" method="post" id="login-form">
 		<h3 class="form-title">Login to your account</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
-			<span>
-				 Enter any username and password.
+			<span id="error">
+				 
 			</span>
 		</div>
+		
 		<div class="form-group">
 			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
 			<label class="control-label visible-ie8 visible-ie9">Username</label>
@@ -96,7 +97,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			</select>
 		</div>
 		<div class="form-actions">
-			<button type="submit" class="btn green pull-right">
+			<button type="submit" class="btn green pull-right" name="btn-login" id="btn-login">
 			Login <i class="m-icon-swapright m-icon-white"></i>
 			</button>
 		</div>
@@ -131,6 +132,75 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="<?php echo $baseURL; ?>assets/scripts/core/app.js" type="text/javascript"></script>
 <script src="<?php echo $baseURL; ?>assets/scripts/custom/login.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
+<script type="text/javascript">
+	$('document').ready(function()
+	{ 
+	     /* validation */
+	  	$("#login-form").validate({
+	      	rules: {
+				   	password: {
+							   	required: true,
+							   },
+	   				role: 	{
+				            	required: true,
+		            	  	},
+            	  	username: 	{
+				            	required: true,
+		            	  	},
+	    	},
+	       messages:
+	    	{
+	    		username:{
+	                      required: "<label for='username' class='help-block danger' style='color:#BB605E;'>Username is required.</label>"
+	                     },
+	            password:{
+	                      required: "<label for='password' class='help-block danger' style='color:#BB605E;'>Password is required.</label>"
+	                     },
+	            role: {
+	                      required:"<label for='role' class='help-block danger' style='color:#BB605E;'>please select your role</label>"
+	                  },
+	       },
+	    	submitHandler: submitForm 
+        });  
+	    /* validation */
+	    
+	    /* login submit */
+	    function submitForm()
+	    {  
+	   var data = $("#login-form").serialize();
+	    
+	   $.ajax({
+	    
+		   type : 'POST',
+		   url  : 'login-code.php',
+		   data : data,
+		   beforeSend: function()
+		   { 
+		    $("#error").fadeOut();
+		    $("#btn-login").html('<img src="assets/img/ajax_loading.gif" /> &nbsp; sending ...');
+		   },
+		   success :  function(response)
+		      {      
+		     if(response=="ok"){
+		        
+		      	$("#btn-login").html('<img src="assets/img/ajax_loading.gif" /> &nbsp; Signing In ...');
+		      	setTimeout(' window.location.href = "index.php"; ',4000);
+		     }
+		     else{
+		      	$("#error").fadeIn(1000, function(){      
+		    		$("#error").html(response);
+		           	$("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
+		           	$(".alert").removeClass("display-hide");
+		        });
+
+		     }
+		     }
+		   });
+		    return false;
+		  }
+	    /* login submit */
+	});
+</script>
 <script>
 		jQuery(document).ready(function() {     
 		  App.init();

@@ -25,7 +25,28 @@
 	<!-- CONTENT GOES HERE -->
 </div>
 <div id='loader-image' class="display-none"><img src='<?php echo $baseURL; ?>assets/img/ajax_loading.gif' /></div>
-<script type="text/javascript">
+
+<div class="modal fade" id="dialog-user" tabindex="-1" role="basic" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+					<h4 class="modal-title">Tambah Kontrakan</h4>
+				</div>
+				<div class="modal-body">
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn default" data-dismiss="modal">Batal</button>
+					<button type="button" class="btn blue" id="simpan-user">Simpan</button>
+				</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+<script>
 	$('#loader-image').show();
   	showUser();
   	// clicking the 'read store' button
@@ -140,23 +161,3 @@
 	    );
     });
 </script>
-
-<div class="modal fade" id="dialog-user" tabindex="-1" role="basic" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-					<h4 class="modal-title">Tambah Kontrakan</h4>
-				</div>
-				<div class="modal-body">
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn default" data-dismiss="modal">Batal</button>
-					<button type="button" class="btn blue" id="simpan-user">Simpan</button>
-				</div>
-		</div>
-		<!-- /.modal-content -->
-	</div>
-	<!-- /.modal-dialog -->
-</div>
