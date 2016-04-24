@@ -13,7 +13,7 @@ var Login = function () {
 	                password: {
 	                    required: true
 	                },
-	                remember: {
+	                role: {
 	                    required: false
 	                }
 	            },
@@ -24,6 +24,9 @@ var Login = function () {
 	                },
 	                password: {
 	                    required: "Password is required."
+	                },
+	                role: {
+	                    required: "Role is required."
 	                }
 	            },
 
@@ -45,9 +48,7 @@ var Login = function () {
 	                error.insertAfter(element.closest('.input-icon'));
 	            },
 
-	            submitHandler: function (form) {
-	                form.submit(); // form validation success, call ajax form submit
-	            }
+	            submitHandler: submitForm
 	        });
 
 	        $('.login-form input').keypress(function (e) {
@@ -97,9 +98,7 @@ var Login = function () {
 	                error.insertAfter(element.closest('.input-icon'));
 	            },
 
-	            submitHandler: function (form) {
-	                form.submit();
-	            }
+	            submitHandler: submitForm
 	        });
 
 	        $('.forget-form input').keypress(function (e) {
@@ -123,135 +122,48 @@ var Login = function () {
 
 	}
 
-	var handleRegister = function () {
-
-		function format(state) {
-            if (!state.id) return state.text; // optgroup
-            return "<img class='flag' src='assets/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
-        }
-
-
-		$("#select2_sample4").select2({
-		  	placeholder: '<i class="fa fa-map-marker"></i>&nbsp;Select a Country',
-            allowClear: true,
-            formatResult: format,
-            formatSelection: format,
-            escapeMarkup: function (m) {
-                return m;
-            }
-        });
-
-
-			$('#select2_sample4').change(function () {
-                $('.register-form').validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
-            });
-
-
-
-         $('.register-form').validate({
-	            errorElement: 'span', //default input error message container
-	            errorClass: 'help-block', // default input error message class
-	            focusInvalid: false, // do not focus the last invalid input
-	            ignore: "",
-	            rules: {
-	                
-	                fullname: {
-	                    required: true
-	                },
-	                email: {
-	                    required: true,
-	                    email: true
-	                },
-	                address: {
-	                    required: true
-	                },
-	                city: {
-	                    required: true
-	                },
-	                country: {
-	                    required: true
-	                },
-
-	                username: {
-	                    required: true
-	                },
-	                password: {
-	                    required: true
-	                },
-	                rpassword: {
-	                    equalTo: "#register_password"
-	                },
-
-	                tnc: {
-	                    required: true
-	                }
-	            },
-
-	            messages: { // custom messages for radio buttons and checkboxes
-	                tnc: {
-	                    required: "Please accept TNC first."
-	                }
-	            },
-
-	            invalidHandler: function (event, validator) { //display error alert on form submit   
-
-	            },
-
-	            highlight: function (element) { // hightlight error inputs
-	                $(element)
-	                    .closest('.form-group').addClass('has-error'); // set error class to the control group
-	            },
-
-	            success: function (label) {
-	                label.closest('.form-group').removeClass('has-error');
-	                label.remove();
-	            },
-
-	            errorPlacement: function (error, element) {
-	                if (element.attr("name") == "tnc") { // insert checkbox errors after the container                  
-	                    error.insertAfter($('#register_tnc_error'));
-	                } else if (element.closest('.input-icon').size() === 1) {
-	                    error.insertAfter(element.closest('.input-icon'));
-	                } else {
-	                	error.insertAfter(element);
-	                }
-	            },
-
-	            submitHandler: function (form) {
-	                form.submit();
-	            }
-	        });
-
-			$('.register-form input').keypress(function (e) {
-	            if (e.which == 13) {
-	                if ($('.register-form').validate().form()) {
-	                    $('.register-form').submit();
-	                }
-	                return false;
-	            }
-	        });
-
-	        jQuery('#register-btn').click(function () {
-	            jQuery('.login-form').hide();
-	            jQuery('.register-form').show();
-	        });
-
-	        jQuery('#register-back-btn').click(function () {
-	            jQuery('.login-form').show();
-	            jQuery('.register-form').hide();
-	        });
-	}
+	
     
     return {
         //main function to initiate the module
         init: function () {
-        	
             handleLogin();
             handleForgetPassword();
-            handleRegister();        
-	       
         }
 
     };
 
 }();
+
+function submitForm()
+{  
+	var data = $("#login-form").serialize();
+
+	$.ajax({
+
+		type : 'POST',
+		url  : 'login-code.php',
+		data : data,
+		beforeSend: function()
+		{ 
+			$("#error").fadeOut();
+			$("#btn-login").html('<img src="assets/img/ajax_loading.gif" /> &nbsp; sending ...');
+		},
+		success :  function(response)
+	  	{      
+		 	if(response=="ok"){
+		    
+		  		$("#btn-login").html('<img src="assets/img/ajax_loading.gif" /> &nbsp; Signing In ...');
+		  			setTimeout(' window.location.href = "index.php"; ',4000);
+		 		}
+		 	else{
+		  		$("#error").fadeIn(1000, function(){      
+					$("#error").html(response);
+			       	$("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
+			       	$(".alert").removeClass("display-hide");
+			    });
+		 	}
+	 	}
+	});
+	return false;
+}
