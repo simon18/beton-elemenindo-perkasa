@@ -75,26 +75,29 @@ License: You must have a valid license purchased only from themeforest(the above
 			<label class="control-label visible-ie8 visible-ie9">Username</label>
 			<div class="input-icon">
 				<i class="fa fa-user"></i>
-				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username"/>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" required/>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label visible-ie8 visible-ie9">Password</label>
 			<div class="input-icon">
 				<i class="fa fa-lock"></i>
-				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
+				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" required/>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label visible-ie8 visible-ie9">Role</label>
-			<select name="role" class="form-control">
-					<option value="">~ Pilih Role ~</option>
-					<option value="manager_staff">Manager Staff</option>
-					<option value="staff">Staff</option>
-					<option value="supplier">Supplier</option>
-					<option value="sales">Sales</option>
-					<option value="admin">Admin</option>
-			</select>
+			<div class="input-icon">
+				<i class="fa fa-users"></i>
+				<select name="role" class="form-control" required>
+						<option value="">&nbsp; &nbsp; &nbsp;~ Pilih Role ~</option>
+						<option value="manager_staff">&nbsp; &nbsp; &nbsp;Manager Staff</option>
+						<option value="staff">&nbsp; &nbsp; &nbsp;Staff</option>
+						<option value="supplier">&nbsp; &nbsp; &nbsp;Supplier</option>
+						<option value="sales">&nbsp; &nbsp; &nbsp;Sales</option>
+						<option value="admin">&nbsp; &nbsp; &nbsp;Admin</option>
+				</select>
+			</div>
 		</div>
 		<div class="form-actions">
 			<button type="submit" class="btn blue pull-right" name="btn-login" id="btn-login">

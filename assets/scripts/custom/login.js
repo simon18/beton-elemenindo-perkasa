@@ -14,7 +14,7 @@ var Login = function () {
 	                    required: true
 	                },
 	                role: {
-	                    required: false
+	                    required: true
 	                }
 	            },
 
@@ -157,11 +157,11 @@ function submitForm()
 		  			setTimeout(' window.location.href = "index.php"; ',4000);
 		 		}
 		 	else{
-		  		$("#error").fadeIn(1000, function(){      
-					$("#error").html(response);
-			       	$("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
+	 			$("#error").fadeIn(1000, function(){
+		 			$("#error").html(response);
+		 			$("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
 			       	$(".alert").removeClass("display-hide");
-			    });
+		       	});
 		 	}
 	 	}
 	});
