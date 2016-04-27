@@ -28,6 +28,38 @@
 					</span>
 				</a>
 			</li>
+			<li class="start <?php echo ($modul == 'sales')?"active":'';  ?>">
+				<a href="sales">
+					<i class="fa fa-users"></i>
+					<span class="title">
+						Data Sales
+					</span>
+				</a>
+			</li>
+			<li class="start <?php echo ($modul == 'supplier')?"active":'';  ?>">
+				<a href="supplier">
+					<i class="fa fa-users"></i>
+					<span class="title">
+						Data Supllier
+					</span>
+				</a>
+			</li>
+			<li class="start <?php echo ($modul == 'karyawan')?"active":'';  ?>">
+				<a href="karyawan">
+					<i class="fa fa-users"></i>
+					<span class="title">
+						Data Karyawan
+					</span>
+				</a>
+			</li>
+			<li class="start <?php echo ($modul == 'kendaraan')?"active":'';  ?>">
+				<a href="kendaraan">
+					<i class="fa fa-database"></i>
+					<span class="title">
+						Data Kendaraan
+					</span>
+				</a>
+			</li>
 			<li class="start <?php echo ($modul == 'bahan-baku')?"active":'';  ?>">
 				<a href="bahan-baku">
 					<i class="fa fa-puzzle-piece"></i>
@@ -44,6 +76,7 @@
 					</span>
 				</a>
 			</li>
+			
 			<li class="start <?php echo ($modul == 'pengadaan')?"active":'';  ?>">
 				<a href="pengadaan">
 					<i class="fa fa-line-chart"></i>
@@ -60,6 +93,7 @@
 					</span>
 				</a>
 			</li>
+			
 			<li class="start ">
 				<a href="logout-code.php">
 					<i class="fa fa-sign-out"></i>

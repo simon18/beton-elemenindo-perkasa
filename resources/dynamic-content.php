@@ -11,38 +11,47 @@ if ($modul == '' || $modul == 'home') {
 elseif ($modul == 'bahan-baku') {
 	include_once("layout/modul/bahan-baku/bahan-baku.php");
 }
-elseif ($modul == 'bahan-baku-tambah') {
-	include_once("layout/modul/bahan-baku/bahan-baku-tambah.php");
-}
 
 // DATA PEMESANAN
 elseif ($modul == 'pemesanan') {
 	include_once("layout/modul/pemesanan/pemesanan.php");
-}
-elseif ($modul == 'pemesanan-tambah') {
-	include_once("layout/modul/pemesanan/pemesanan-tambah.php");
 }
 
 // DATA PENGADAAN
 elseif ($modul == 'pengadaan') {
 	include_once("layout/modul/pengadaan/pengadaan.php");
 }
-elseif ($modul == 'pengadaan-tambah') {
-	include_once("layout/modul/pengadaan/pengadaan-tambah.php");
-}
 
 // DATA PENGIRIMAN
 elseif ($modul == 'pengiriman') {
 	include_once("layout/modul/pengiriman/pengiriman.php");
 }
-elseif ($modul == 'pengiriman-tambah') {
-	include_once("layout/modul/pengiriman/pengiriman-tambah.php");
+
+// DATA PENGIRIMAN
+elseif ($modul == 'kendaraan') {
+	include_once("layout/modul/kendaraan/kendaraan.php");
 }
 
 // DATA USER
 elseif ($modul == 'user') {
 	include_once("layout/modul/user/user.php");
 }
-elseif ($modul == 'user-tambah') {
-	include_once("layout/modul/user/user-tambah.php");
+
+// DATA SALES
+elseif ($modul == 'sales') {
+	include_once("layout/modul/sales/sales.php");
+}
+
+// DATA SUPLLIER
+elseif ($modul == 'supplier') {
+	include_once("layout/modul/supplier/supplier.php");
+}
+
+// DATA KARYAWAN
+elseif ($modul == 'karyawan') {
+	include_once("layout/modul/karyawan/karyawan.php");
+}
+
+else{
+	include_once("layout/modul/404/404.php");
 }

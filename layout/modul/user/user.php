@@ -1,7 +1,7 @@
 <div class="table-toolbar">
 	<div class="btn-group">
 		<a class="btn blue add" data-toggle="modal" id="0" href="#dialog-user">
-		Tambah User <i class="fa fa-plus"></i>
+		<i class="fa fa-plus"></i> Tambah User 
 		</a>
 	</div>
 	<div class="btn-group pull-right">
@@ -31,7 +31,7 @@
 		<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-					<h4 class="modal-title">Tambah Bahan Baku</h4>
+					<h4 class="modal-title">Tambah Sales</h4>
 				</div>
 				<div class="modal-body">
 
@@ -106,6 +106,7 @@
                 $('#dialog-user').modal('hide');
                 // kembalikan judul modal dialog
                 $(".modal-title").html("Tambah Data User");
+                $("#simpan-user").html('&nbsp; Simpan');
 			};
  			$.ajax({
 				type : 'POST',
@@ -133,31 +134,6 @@
 			return false;
         });
 
-        // ketika tombol simpan ditekan
-        // $("#simpan-user").bind("click", function(event) {
-        // 	var data = $("#form-user").serializeArray();
-        //     var url = "<?php echo $baseURL; ?>layout/modul/user/user-code.php";
- 
-        //     // mengambil nilai dari inputbox, textbox dan select
-        //     var v_role = $('select[name=irole]').val();
-        //     var v_username = $('input:text[name=iusername]').val();
-        //     var v_password = $('input[name=ipassword]').val();
-        //     var v_first_name = $('input:text[name=ifirst_name]').val();
-        //     var v_last_name = $('input:text[name=ilast_name]').val();
-        //     var v_email = $('input[name=iemail]').val();
-        //     // mengirimkan data ke berkas transaksi.input.php untuk di proses
-        //     $.post(url, {role: v_role, username: v_username, password: v_password, first_name: v_first_name, last_name: v_last_name, email: v_email, id: id} ,function() {
-        //         // tampilkan data mahasiswa yang sudah di perbaharui
-        //         // ke dalam <div id="data-mahasiswa"></div>
-        //         $("#data-user").load(main);
- 
-        //         // sembunyikan modal dialog
-        //         $('#dialog-user').modal('hide');
-                 
-        //         // kembalikan judul modal dialog
-        //         $(".modal-title").html("Tambah Data User");
-        //     });
-        // });
     });
 
 	// HAPUS
@@ -170,7 +146,7 @@
         swal(
 	      {
 	        title: 'Apakah anda yakin?',
-	        text: "Semua data yang berhubungan dengan store ini akan terhapus!",
+	        text: "Semua data yang berhubungan dengan data ini akan terhapus!",
 	        type: 'warning',
 	        showCancelButton: true,
 	        confirmButtonColor: '#3085d6',

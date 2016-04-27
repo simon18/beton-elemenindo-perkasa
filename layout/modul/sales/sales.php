@@ -1,7 +1,7 @@
 <div class="table-toolbar">
 	<div class="btn-group">
-		<a class="btn blue add" data-toggle="modal" id="0" href="#dialog-bahan-baku">
-		<i class="fa fa-plus"></i> Tambah Bahan Baku 
+		<a class="btn blue add" data-toggle="modal" id="0" href="#dialog-sales">
+		<i class="fa fa-plus"></i> Tambah Sales 
 		</a>
 	</div>
 	<div class="btn-group pull-right">
@@ -21,24 +21,24 @@
 		</ul>
 	</div>
 </div>
-<div id="data-bahan-baku">
+<div id="data-sales">
 	<!-- CONTENT GOES HERE -->
 </div>
 <div id='loader-image' class="display-none"></div>
 
-<div class="modal fade" id="dialog-bahan-baku" tabindex="-1" role="basic" aria-hidden="true">
+<div class="modal fade" id="dialog-sales" tabindex="-1" role="basic" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-					<h4 class="modal-title">Tambah Bahan Baku</h4>
+					<h4 class="modal-title">Tambah Sales</h4>
 				</div>
 				<div class="modal-body">
 
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn default" data-dismiss="modal">Batal</button>
-					<button type="button" class="btn blue" id="simpan-bahan-baku">Simpan</button>
+					<button type="button" class="btn blue" id="simpan-sales">Simpan</button>
 				</div>
 		</div>
 		<!-- /.modal-content -->
@@ -48,23 +48,23 @@
 
 <script>
 	$('#loader-image').show();
-  	showBahanBaku();
+  	showSales();
   	// clicking the 'read store' button
 	  $('#read-store').click(function(){
 	      // show a loader img
 	      $('#loader-image').show();
-	      showBahanBaku();
+	      showSales();
 	  });
-	function showBahanBaku(){
+	function showSales(){
            
 	      // fade out effect first
-	      $('#data-bahan-baku').fadeOut('fast', function(){
-	          $('#data-bahan-baku').load('<?php echo $baseURL; ?>layout/modul/bahan-baku/bahan-baku-read.php', function(){
+	      $('#data-sales').fadeOut('fast', function(){
+	          $('#data-sales').load('<?php echo $baseURL; ?>layout/modul/sales/sales-read.php', function(){
 	              // hide loader image
 	              $('#loader-image').hide(); 
 	               
 	              // fade in effect
-	              $('#data-bahan-baku').fadeIn('fast');
+	              $('#data-sales').fadeIn('fast');
 	          });
 	      });
     }
@@ -72,21 +72,21 @@
          
         // deklarasikan variabel
         var id = 0;
-        var main = "<?php echo $baseURL; ?>layout/modul/bahan-baku/bahan-baku-read.php";
-     	// $("#data-bahan-baku").load(main);
+        var main = "<?php echo $baseURL; ?>layout/modul/sales/sales-read.php";
+     	// $("#data-sales").load(main);
         // ketika tombol ubah/tambah di tekan
         $('.add, .update').live("click", function(){
              
-            var url = "<?php echo $baseURL; ?>layout/modul/bahan-baku/bahan-baku-form.php";
+            var url = "<?php echo $baseURL; ?>layout/modul/sales/sales-form.php";
             // ambil nilai id dari tombol ubah
             id = this.id;
              
             if(id != 0) {
                 // ubah judul modal dialog
-                $(".modal-title").html("Ubah Data Bahan Baku");
+                $(".modal-title").html("Ubah Data Sales");
             } else {
                 // saran dari mas hangs 
-                $(".modal-title").html("Tambah Data Bahan Baku");
+                $(".modal-title").html("Tambah Data Sales");
             }
  
             $.post(url, {id: id} ,function(data) {
@@ -94,20 +94,19 @@
                 $(".modal-body").html(data).show();
             });
         });
-         
         // ketika tombol simpan ditekan
-        $("#simpan-bahan-baku").bind("click", function(event) {
-        	var data = $("#form-bahan-baku").serializeArray();
+        $("#simpan-sales").bind("click", function(event) {
+        	var data = $("#form-sales").serializeArray();
         	data.push({ name: "id", value: id });
-            var url = "<?php echo $baseURL; ?>layout/modul/bahan-baku/bahan-baku-code.php";
+            var url = "<?php echo $baseURL; ?>layout/modul/sales/sales-code.php";
             var stateSuccess = function(){
             	$('#loader-image').show();
-				showBahanBaku();
+				showSales();
                 // sembunyikan modal dialog
-                $('#dialog-bahan-baku').modal('hide');
+                $('#dialog-sales').modal('hide');
                 // kembalikan judul modal dialog
-                $(".modal-title").html("Tambah Data Bahan Baku");
-                $("#simpan-bahan-baku").html('&nbsp; Simpan');
+                $(".modal-title").html("Tambah Data Sales");
+                $("#simpan-sales").html('&nbsp; Simpan');
 			};
  			$.ajax({
 				type : 'POST',
@@ -116,29 +115,30 @@
 				beforeSend: function()
 				{ 
 					$("#error").fadeOut();
-					$("#simpan-bahan-baku").html('<img src="<?php echo $baseURL; ?>assets/img/ajax_loading.gif" /> &nbsp; Menyimpan ...');
+					$("#simpan-sales").html('<img src="<?php echo $baseURL; ?>assets/img/ajax_loading.gif" /> &nbsp; Menyimpan ...');
 					setTimeout(function(){},3000);
 				},
 				success :  function(response)
 					{      
 					if(response=="ok"){
-						$("#simpan-bahan-baku").html('<img src="<?php echo $baseURL; ?>assets/img/ajax_loading.gif" /> &nbsp; Menyimpan ...');
+						$("#simpan-sales").html('<img src="<?php echo $baseURL; ?>assets/img/ajax_loading.gif" /> &nbsp; Menyimpan ...');
 						setTimeout(stateSuccess,4000);
 					}
 					else
 					{
-						$("#simpan-bahan-baku").html('&nbsp; Simpan');
+						$("#simpan-sales").html('&nbsp; Simpan');
 						alert(response);
 					}
 				}
 			});
 			return false;
         });
+
     });
 
 	// HAPUS
 	$(document).on('click', '.hapus', function(){
-        var url = "<?php echo $baseURL; ?>layout/modul/bahan-baku/bahan-baku-code.php";
+        var url = "<?php echo $baseURL; ?>layout/modul/sales/sales-code.php";
         // ambil nilai id dari tombol hapus
         id = this.id;
          
@@ -169,7 +169,7 @@
                     // show loader image
 		            $('#loader-image').show();
 		            // reload the store list
-		            showBahanBaku();
+		            showSales();
                 });
 	        }
 	      }

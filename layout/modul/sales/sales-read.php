@@ -8,15 +8,16 @@
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Bahan Baku</th>
-				<th>Stok (Kg)</th>
-				<th>Harga</th>
+				<th>Username</th>
+				<th>Nama Sales</th>
+				<th>Telepon</th>
+				<th>Email</th>
 				<th>Aksi</th>
 			</tr>
 		</thead>
 		<tbody class="body-table">
 			<?php
-				$sql = "SELECT * FROM bahan_baku";
+				$sql = "SELECT * FROM sales";
 				$query = mysql_query($sql);
 				$i = 0;
 				while($data = mysql_fetch_assoc($query))
@@ -24,14 +25,15 @@
 			?>
 			<tr>
 				<td><?php echo ($i+1) ?></td>
-				<td><?php echo $data['bahan_baku'] ?></td>
-				<td><?php echo $data['stok'] ?></td>
-				<td><?php echo $data['harga'] ?></td>
+				<td><?php echo $data['username'] ?></td>
+				<td><?php echo $data['nama_sales'] ?></td>
+				<td><?php echo $data['telepon'] ?></td>
+				<td><?php echo $data['email'] ?></td>
 				<td>
-					<a href="#dialog-bahan-baku" id="<?php echo $data['id_bahan_baku'] ?>" class="update" data-toggle="modal">
+					<a href="#dialog-sales" id="<?php echo $data['id_sales'] ?>" class="update" data-toggle="modal">
 						<i class="fa fa-pencil"></i>
 					</a>
-					<a href="#" id="<?php echo $data['id_bahan_baku'] ?>" class="hapus">
+					<a href="#" id="<?php echo $data['id_sales'] ?>" class="hapus">
 						<i class="fa fa-trash"></i>
 					</a>
 				</td>

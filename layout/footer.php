@@ -25,13 +25,27 @@
 <script src="<?php echo $baseURL; ?>assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="<?php echo $baseURL; ?>assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>
 <script src="<?php echo $baseURL; ?>assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo $baseURL; ?>assets/plugins/fuelux/js/spinner.min.js"></script>
+<script type="text/javascript" src="<?php echo $baseURL; ?>assets/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+<script type="text/javascript" src="<?php echo $baseURL; ?>assets/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>
+<script type="text/javascript" src="<?php echo $baseURL; ?>assets/plugins/jquery.input-ip-address-control-1.0.min.js"></script>
+<!--
+<script src="<?php echo $baseURL; ?>assets/plugins/jquery.pwstrength.bootstrap/src/pwstrength.js" type="text/javascript"></script>
+<script src="<?php echo $baseURL; ?>assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="<?php echo $baseURL; ?>assets/plugins/jquery-tags-input/jquery.tagsinput.min.js" type="text/javascript"></script>
+<script src="<?php echo $baseURL; ?>assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+<script src="<?php echo $baseURL; ?>assets/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script>
+<script src="<?php echo $baseURL; ?>assets/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
+<script src="<?php echo $baseURL; ?>assets/plugins/typeahead/typeahead.min.js" type="text/javascript"></script>
+<script src="<?php echo $baseURL; ?>assets/scripts/core/app.js"></script>
+<script src="<?php echo $baseURL; ?>assets/scripts/custom/components-form-tools.js"></script>
+-->
 <!-- FOR PRELOAD -->
 <script src="<?php echo $baseURL; ?>assets/js/core-1.0.5.js"></script>
 <script src="<?php echo $baseURL; ?>assets/js/preloadCssImages.jQuery_v5.js"></script>
 <script type="text/javascript">
     $('document').ready(function() {
       /*
-
       Preload Images
 
       */
@@ -65,6 +79,7 @@
 <script>
 jQuery(document).ready(function() {    
    App.init();
+   // ComponentsFormTools.init();
 });
 </script>
 <!-- END JAVASCRIPTS -->

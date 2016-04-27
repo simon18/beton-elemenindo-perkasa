@@ -7,7 +7,7 @@
   <meta content="" name="description"/>
   <meta content="" name="author"/>
   <!-- BEGIN GLOBAL MANDATORY STYLES -->
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+  <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/> -->
   <link href="<?php echo $baseURL; ?>assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
@@ -22,12 +22,18 @@
   <link href="<?php echo $baseURL; ?>assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/plugins/sweetalert/sweetalert2.css" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $baseURL; ?>assets/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $baseURL; ?>assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $baseURL; ?>assets/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $baseURL; ?>assets/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo $baseURL; ?>assets/plugins/typeahead/typeahead.css">
   <!-- BEGIN THEME STYLES -->
   <link href="<?php echo $baseURL; ?>assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/css/style.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/css/plugins.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+  <link href="<?php echo $baseURL; ?>assets/css/pages/error.css" rel="stylesheet" type="text/css"/>
   <link href="<?php echo $baseURL; ?>assets/css/custom.css" rel="stylesheet" type="text/css"/>
   <script src="<?php echo $baseURL; ?>assets/plugins/jQuery-2.2.0.min.js" type="text/javascript"></script>
   
