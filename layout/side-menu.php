@@ -68,6 +68,14 @@
 					</span>
 				</a>
 			</li>
+			<li class="start <?php echo ($modul == 'produksi')?"active":'';  ?>">
+				<a href="produksi">
+					<i class="fa fa-puzzle-piece"></i>
+					<span class="title">
+						Persediaan Produksi
+					</span>
+				</a>
+			</li>
 			<li class="start <?php echo ($modul == 'pemesanan')?"active":'';  ?>">
 				<a href="pemesanan">
 					<i class="fa fa-shopping-cart"></i>
@@ -79,7 +87,7 @@
 			
 			<li class="start <?php echo ($modul == 'pengadaan')?"active":'';  ?>">
 				<a href="pengadaan">
-					<i class="fa fa-line-chart"></i>
+					<i class="fa fa-shopping-cart"></i>
 					<span class="title">
 						Pengadaan
 					</span>
