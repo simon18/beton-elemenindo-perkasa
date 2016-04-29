@@ -23,7 +23,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8"/>
-<title>Metronic | Admin Dashboard Template</title>
+<title>PT. Beton Elemenindo Perkasa</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="" name="description"/>
@@ -104,7 +104,39 @@ License: You must have a valid license purchased only from themeforest(the above
 			Login <i class="m-icon-swapright m-icon-white"></i>
 			</button>
 		</div>
-		
+		<div class="forget-password">
+			<h4>Lupa Password Anda ?</h4>
+			<p>
+				 jangan khawatir, klik
+				<a href="javascript:;" id="forget-password">
+					 disini
+				</a>
+				 untuk mereset password anda.
+			</p>
+		</div>
+	</form>
+	<!-- END LOGIN FORM -->
+	<!-- BEGIN FORGOT PASSWORD FORM -->
+	<form class="forget-form" action="index.html" method="post">
+		<h3>Lupa Password ?</h3>
+		<p>
+			 masukan alamat e-mail anda dibawah ini untuk mereset password anda.
+		</p>
+		<div class="form-group">
+			<div class="input-icon">
+				<i class="fa fa-envelope"></i>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+			</div>
+		</div>
+		<div class="form-actions">
+			<button type="button" id="back-btn" class="btn">
+			<i class="m-icon-swapleft"></i> kembali </button>
+			<button type="submit" class="btn green pull-right">
+			Submit <i class="m-icon-swapright m-icon-white"></i>
+			</button>
+		</div>
+	</form>
+	<!-- END FORGOT PASSWORD FORM -->
 </div>
 <!-- END LOGIN -->
 <!-- BEGIN COPYRIGHT -->

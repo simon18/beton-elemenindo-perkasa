@@ -25,7 +25,7 @@
 			<!-- BEGIN USER LOGIN DROPDOWN -->
 			<li class="dropdown user">
 				<a href="layout_boxed_page.html#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-					<img alt="" src="assets/img/profile.jpg"/>
+					<img alt="" src="assets/img/avatar.png" width="29px" height="29px" />
 					<span class="username">
 						 <?php echo $_SESSION['first_name']." ".$_SESSION['last_name']." (".ucwords($_SESSION['role']).")"; ?>
 					</span>
