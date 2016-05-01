@@ -12,6 +12,11 @@ elseif ($modul == 'bahan-baku') {
 	include_once("layout/modul/bahan-baku/bahan-baku.php");
 }
 
+// DATA PRODUKSI
+elseif ($modul == 'produksi') {
+	include_once("layout/modul/produksi/produksi.php");
+}
+
 // DATA PEMESANAN
 elseif ($modul == 'pemesanan') {
 	include_once("layout/modul/pemesanan/pemesanan.php");
