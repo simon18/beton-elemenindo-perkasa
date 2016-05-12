@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2016 at 09:47 AM
+-- Generation Time: May 12, 2016 at 10:55 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -85,7 +85,22 @@ CREATE TABLE IF NOT EXISTS `kendaraan` (
 
 INSERT INTO `kendaraan` (`id_kendaraan`, `no_polisi`, `kapasitas`, `status`) VALUES
 (3, 'D 1234 VJ', 60, 1),
-(4, 'D 1234 YY', 30, 0);
+(4, 'D 1234 YY', 30, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pemesanan`
+--
+
+CREATE TABLE IF NOT EXISTS `pemesanan` (
+`id_pemesanan` int(11) NOT NULL,
+  `tgl_pemesanan` date NOT NULL,
+  `verifikasi1` tinyint(1) NOT NULL,
+  `verifikasi2` tinyint(1) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `sales` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -94,11 +109,11 @@ INSERT INTO `kendaraan` (`id_kendaraan`, `no_polisi`, `kapasitas`, `status`) VAL
 --
 
 CREATE TABLE IF NOT EXISTS `produk` (
-`id_produk` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
   `nama_produk` varchar(100) NOT NULL,
   `stok` int(8) NOT NULL,
   `harga` int(8) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `produk`
@@ -167,18 +182,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id_user`, `role`, `email`, `username`, `password`, `first_name`, `last_name`, `created_at`) VALUES
-(2, 'manager_staff', 'giri@gmail.com', 'manager', '1d0258c2440a8d19e716292b231e3190', 'giri', 'gerhan', '2016-04-04 03:34:34'),
-(4, 'supplier', 'egatangkurak666@gmail.com', 'supplier', '99b0e8da24e29e4ccb5d7d76e677c2ac', 'ega', 'tangkurak', '2016-04-04 04:46:57'),
+(2, 'manager_staff', 'ahmadsopian311@gmail.com', 'manager', '1d0258c2440a8d19e716292b231e3190', 'ahmad', 'sopian', '2016-04-04 03:34:34'),
+(4, 'supplier', 'ahmadsopian311@gmail.com', 'supplier', '99b0e8da24e29e4ccb5d7d76e677c2ac', 'ahmad', 'sopian', '2016-04-04 04:46:57'),
 (6, 'sales', 'sales@gmail.com', 'sales', '9ed083b1436e5f40ef984b28255eef18', 'ahmad', 'sopian', '2016-04-15 03:49:01'),
 (7, 'staff', 'staff@gmail.com', 'staff', '1253208465b1efa876f982d8a9e73eef', 'aso', 'tahu', '2016-04-15 03:49:59'),
-(8, 'admin', 'simonmanurung18@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'simon', 'manurung', '2016-04-18 02:31:22');
+(8, 'admin', 'ahmadsopian311@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'ahmad', 'sopian', '2016-04-18 02:31:22');
 
 --
 -- Indexes for dumped tables
@@ -203,10 +218,10 @@ ALTER TABLE `kendaraan`
  ADD PRIMARY KEY (`id_kendaraan`);
 
 --
--- Indexes for table `produk`
+-- Indexes for table `pemesanan`
 --
-ALTER TABLE `produk`
- ADD PRIMARY KEY (`id_produk`);
+ALTER TABLE `pemesanan`
+ ADD PRIMARY KEY (`id_pemesanan`);
 
 --
 -- Indexes for table `sales`
@@ -246,10 +261,10 @@ MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 ALTER TABLE `kendaraan`
 MODIFY `id_kendaraan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT for table `pemesanan`
 --
-ALTER TABLE `produk`
-MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+ALTER TABLE `pemesanan`
+MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `sales`
 --
@@ -264,7 +279,7 @@ MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id_user` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `id_user` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
