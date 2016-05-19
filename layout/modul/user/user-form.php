@@ -43,6 +43,8 @@ if($id_user > 0) {
 					<option value="supplier" <?php echo ($role == "supplier"?"selected":"") ?>>Supplier</option>
 					<option value="sales" <?php echo ($role == "sales"?"selected":"") ?>>Sales</option>
 					<option value="admin" <?php echo ($role == "admin"?"selected":"") ?>>Admin</option>
+					<option value="kepala_gudang" <?php echo ($role == "kepala_gudang"?"selected":"") ?>>Kepala Gudang</option>
+					<option value="kepala_pabrik" <?php echo ($role == "kepala_pabrik"?"selected":"") ?>>Kepala Pabrik</option>
 				</select>
 			</div>
 		</div>

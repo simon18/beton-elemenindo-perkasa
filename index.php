@@ -91,11 +91,13 @@ License: You must have a valid license purchased only from themeforest(the above
 				<i class="fa fa-users"></i>
 				<select name="role" class="form-control" required>
 						<option value="">&nbsp; &nbsp; &nbsp;~ Pilih Role ~</option>
-						<option value="manager_staff">&nbsp; &nbsp; &nbsp;Manager Staff</option>
+						<option value="manager">&nbsp; &nbsp; &nbsp;Manager</option>
 						<option value="staff">&nbsp; &nbsp; &nbsp;Staff</option>
 						<option value="supplier">&nbsp; &nbsp; &nbsp;Supplier</option>
 						<option value="sales">&nbsp; &nbsp; &nbsp;Sales</option>
 						<option value="admin">&nbsp; &nbsp; &nbsp;Admin</option>
+						<option value="kepala_gudang">&nbsp; &nbsp; &nbsp;Kepala Gudang</option>
+						<option value="kepala_pabrik">&nbsp; &nbsp; &nbsp;Kepala Pabrik</option>
 				</select>
 			</div>
 		</div>
@@ -107,7 +109,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<div class="forget-password">
 			<h4>Lupa Password Anda ?</h4>
 			<p>
-				 jangan khawatir, klik
+				Klik
 				<a href="javascript:;" id="forget-password">
 					 disini
 				</a>

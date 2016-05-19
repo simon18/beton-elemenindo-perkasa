@@ -6,31 +6,31 @@ include_once($lokasi."resources/config.php");
 // buat koneksi ke database mysql
 koneksi_buka();
 
-// tangkap variabel id_bahan_baku 
-$id_bahan_baku = $_POST['id'];
+// tangkap variabel id_pemesanan 
+$id_pemesanan = $_POST['id'];
 
-// query untuk menampilkan user berdasarkan id_bahan_baku 
-$data = mysql_fetch_array(mysql_query("SELECT * FROM bahan_baku WHERE id_bahan_baku=".$id_bahan_baku));
+// query untuk menampilkan user berdasarkan id_pemesanan 
+$data = mysql_fetch_array(mysql_query("SELECT * FROM pemesanan_produk WHERE id_pemesanan=".$id_pemesanan));
 
-// jika id_bahan_baku  > 0 / form ubah data
-if($id_bahan_baku > 0) { 
-	$bahan_baku	= $data['bahan_baku'];
+// jika id_pemesanan  > 0 / form ubah data
+if($id_pemesanan > 0) { 
+	$pemesanan	= $data['pemesanan'];
 	$stok = $data['stok'];
 	$harga = $data['harga'];
 
 //form tambah data
 } else {
-	$bahan_baku	= "";
+	$pemesanan	= "";
 	$stok = "";
 	$harga = "";
 }
 ?>
-<form id="form-bahan-baku" class="form-horizontal" autocomplete="off" >
+<form id="form-pemesanan" class="form-horizontal" autocomplete="off" >
 	<div class="form-body">
 		<div class="form-group">
-			<label class="col-md-3 control-label">Bahan Baku <i class="asterisk">*</i></label>
+			<label class="col-md-3 control-label">Pemesanan <i class="asterisk">*</i></label>
 			<div class="col-md-9">
-				<input type="text" name="bahan_baku" class="form-control" placeholder="Bahan Baku" required value="<?php echo $bahan_baku ?>">
+				<input type="text" name="pemesanan" class="form-control" placeholder="Bahan Baku" required value="<?php echo $pemesanan ?>">
 			</div>
 		</div>
 		<div class="form-group">

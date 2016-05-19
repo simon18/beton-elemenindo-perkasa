@@ -14,6 +14,7 @@ if(isset($_POST['hapus'])) {
 	{
 		// deklarasikan variabel
 		$id_produk	= $_POST['id'];
+		$kode_produk	= $_POST['kode_produk'];
 		$nama_produk	= $_POST['nama_produk'];
 		$stok = $_POST['stok'];
 		$harga = $_POST['harga'];
@@ -22,7 +23,7 @@ if(isset($_POST['hapus'])) {
 		if($nama_produk!="" && $stok!="") {
 			// proses tambah data user
 			if($id_produk == 0) {
-				$query = mysql_query("INSERT INTO produk (nama_produk, stok, harga) VALUES('$nama_produk', '$stok', '$harga')");
+				$query = mysql_query("INSERT INTO produk (kode_produk, nama_produk, stok, harga) VALUES('$kode_produk', '$nama_produk', '$stok', '$harga')");
 				if ($query) {
 					echo "ok"; 
 				}

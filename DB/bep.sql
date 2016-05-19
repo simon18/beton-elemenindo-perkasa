@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2016 at 10:55 AM
+-- Generation Time: May 19, 2016 at 12:37 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -19,29 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `bep`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `bahan_baku`
---
-
-CREATE TABLE IF NOT EXISTS `bahan_baku` (
-`id_bahan_baku` int(8) NOT NULL,
-  `bahan_baku` varchar(150) NOT NULL,
-  `stok` int(8) NOT NULL,
-  `harga` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `bahan_baku`
---
-
-INSERT INTO `bahan_baku` (`id_bahan_baku`, `bahan_baku`, `stok`, `harga`) VALUES
-(1, 'semen', 5000, 70000),
-(2, 'pasir', 800, 50000),
-(3, 'split', 40000, 800000),
-(4, 'hs-5', 5000, 60000);
 
 -- --------------------------------------------------------
 
@@ -90,10 +67,48 @@ INSERT INTO `kendaraan` (`id_kendaraan`, `no_polisi`, `kapasitas`, `status`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemesanan`
+-- Table structure for table `material`
 --
 
-CREATE TABLE IF NOT EXISTS `pemesanan` (
+CREATE TABLE IF NOT EXISTS `material` (
+`id_material` int(8) NOT NULL,
+  `material` varchar(150) NOT NULL,
+  `stok` int(8) NOT NULL,
+  `harga` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `material`
+--
+
+INSERT INTO `material` (`id_material`, `material`, `stok`, `harga`) VALUES
+(1, 'semen', 5000, 70000),
+(2, 'pasir', 800, 50000),
+(3, 'split', 40000, 800000),
+(4, 'hs-5', 5000, 60000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pemesanan_material`
+--
+
+CREATE TABLE IF NOT EXISTS `pemesanan_material` (
+`id_pemesanan` int(11) NOT NULL,
+  `tgl_pemesanan` date NOT NULL,
+  `verifikasi1` tinyint(1) NOT NULL,
+  `verifikasi2` tinyint(1) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `sales` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pemesanan_produk`
+--
+
+CREATE TABLE IF NOT EXISTS `pemesanan_produk` (
 `id_pemesanan` int(11) NOT NULL,
   `tgl_pemesanan` date NOT NULL,
   `verifikasi1` tinyint(1) NOT NULL,
@@ -109,18 +124,20 @@ CREATE TABLE IF NOT EXISTS `pemesanan` (
 --
 
 CREATE TABLE IF NOT EXISTS `produk` (
-  `id_produk` int(11) NOT NULL,
+`id_produk` int(8) NOT NULL,
+  `kode_produk` varchar(15) NOT NULL,
   `nama_produk` varchar(100) NOT NULL,
   `stok` int(8) NOT NULL,
-  `harga` int(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `harga` int(8) NOT NULL,
+  `id_penambah` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `produk`
 --
 
-INSERT INTO `produk` (`id_produk`, `nama_produk`, `stok`, `harga`) VALUES
-(2, 'pancang', 50, 50000);
+INSERT INTO `produk` (`id_produk`, `kode_produk`, `nama_produk`, `stok`, `harga`, `id_penambah`) VALUES
+(2, 'P001', 'Pancang Class S1s', 50111, 10000111, 0);
 
 -- --------------------------------------------------------
 
@@ -175,35 +192,32 @@ INSERT INTO `supplier` (`id_supplier`, `username`, `nama`, `nama_supplier`, `ala
 
 CREATE TABLE IF NOT EXISTS `users` (
 `id_user` int(11) unsigned NOT NULL,
-  `role` enum('manager_staff','staff','supplier','sales','admin') NOT NULL,
+  `role` enum('manager','staff','supplier','sales','admin','kepala_gudang','kepala_pabrik') NOT NULL,
   `email` varchar(100) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id_user`, `role`, `email`, `username`, `password`, `first_name`, `last_name`, `created_at`) VALUES
-(2, 'manager_staff', 'ahmadsopian311@gmail.com', 'manager', '1d0258c2440a8d19e716292b231e3190', 'ahmad', 'sopian', '2016-04-04 03:34:34'),
+(2, 'manager', 'ahmadsopian311@gmail.com', 'manager', '1d0258c2440a8d19e716292b231e3190', 'ahmad', 'sopian', '2016-04-04 03:34:34'),
 (4, 'supplier', 'ahmadsopian311@gmail.com', 'supplier', '99b0e8da24e29e4ccb5d7d76e677c2ac', 'ahmad', 'sopian', '2016-04-04 04:46:57'),
 (6, 'sales', 'sales@gmail.com', 'sales', '9ed083b1436e5f40ef984b28255eef18', 'ahmad', 'sopian', '2016-04-15 03:49:01'),
 (7, 'staff', 'staff@gmail.com', 'staff', '1253208465b1efa876f982d8a9e73eef', 'aso', 'tahu', '2016-04-15 03:49:59'),
-(8, 'admin', 'ahmadsopian311@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'ahmad', 'sopian', '2016-04-18 02:31:22');
+(8, 'admin', 'ahmadsopian311@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'ahmad', 'sopian', '2016-04-18 02:31:22'),
+(9, 'kepala_gudang', 'asotahu@gmail.com', 'gudang', '202446dd1d6028084426867365b0c7a1', 'Gudang', 'Last Name', '2016-05-18 18:09:11'),
+(10, 'kepala_pabrik', 'skas@gmail.com', 'pabrik', 'd716783ecdb3f7bff754c5c275260c1d', 'Pabrik First', 'pabrik Last', '2016-05-18 18:09:41'),
+(11, 'staff', 'aksk@gmail.com', 'asf', '7b064dad507c266a161ffc73c53dcdc5', 'asf', 'asf', '2016-05-18 18:23:43');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `bahan_baku`
---
-ALTER TABLE `bahan_baku`
- ADD PRIMARY KEY (`id_bahan_baku`);
 
 --
 -- Indexes for table `karyawan`
@@ -218,10 +232,28 @@ ALTER TABLE `kendaraan`
  ADD PRIMARY KEY (`id_kendaraan`);
 
 --
--- Indexes for table `pemesanan`
+-- Indexes for table `material`
 --
-ALTER TABLE `pemesanan`
+ALTER TABLE `material`
+ ADD PRIMARY KEY (`id_material`);
+
+--
+-- Indexes for table `pemesanan_material`
+--
+ALTER TABLE `pemesanan_material`
  ADD PRIMARY KEY (`id_pemesanan`);
+
+--
+-- Indexes for table `pemesanan_produk`
+--
+ALTER TABLE `pemesanan_produk`
+ ADD PRIMARY KEY (`id_pemesanan`);
+
+--
+-- Indexes for table `produk`
+--
+ALTER TABLE `produk`
+ ADD PRIMARY KEY (`id_produk`);
 
 --
 -- Indexes for table `sales`
@@ -246,11 +278,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `bahan_baku`
---
-ALTER TABLE `bahan_baku`
-MODIFY `id_bahan_baku` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
 -- AUTO_INCREMENT for table `karyawan`
 --
 ALTER TABLE `karyawan`
@@ -261,10 +288,25 @@ MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 ALTER TABLE `kendaraan`
 MODIFY `id_kendaraan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `pemesanan`
+-- AUTO_INCREMENT for table `material`
 --
-ALTER TABLE `pemesanan`
+ALTER TABLE `material`
+MODIFY `id_material` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `pemesanan_material`
+--
+ALTER TABLE `pemesanan_material`
 MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pemesanan_produk`
+--
+ALTER TABLE `pemesanan_produk`
+MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `produk`
+--
+ALTER TABLE `produk`
+MODIFY `id_produk` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `sales`
 --
@@ -279,7 +321,7 @@ MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id_user` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id_user` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

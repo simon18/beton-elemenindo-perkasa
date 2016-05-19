@@ -33,7 +33,7 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="extra_profile.html">
+						<a href="#">
 							<i class="fa fa-user"></i> My Profile
 						</a>
 					</li>

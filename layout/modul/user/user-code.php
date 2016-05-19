@@ -26,7 +26,7 @@ if(isset($_POST['hapus'])) {
 			// proses tambah data user
 			if($id_user == 0) {
 				$passwordTambah =  md5($_POST['password']);
-				$query = mysql_query("INSERT INTO users (id_user, role, email, username, password, first_name, last_name) VALUES('','$role','$email','$username','$password','$first_name', '$last_name')");
+				$query = mysql_query("INSERT INTO users (id_user, role, email, username, password, first_name, last_name) VALUES('','$role','$email','$username','$passwordTambah','$first_name', '$last_name')");
 				if ($query) {
 					echo "ok"; 
 				}

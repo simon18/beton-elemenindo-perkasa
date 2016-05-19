@@ -8,18 +8,23 @@ if ($modul == '' || $modul == 'home') {
 }
 
 // DATA BAHAN BAKU
-elseif ($modul == 'bahan-baku') {
-	include_once("layout/modul/bahan-baku/bahan-baku.php");
+elseif ($modul == 'material') {
+	include_once("layout/modul/material/material.php");
 }
 
-// DATA PRODUKSI
-elseif ($modul == 'produksi') {
-	include_once("layout/modul/produksi/produksi.php");
+// DATA PRODUK
+elseif ($modul == 'produk') {
+	include_once("layout/modul/produk/produk.php");
 }
 
-// DATA PEMESANAN
-elseif ($modul == 'pemesanan') {
-	include_once("layout/modul/pemesanan/pemesanan.php");
+// DATA PEMESANAN PRODUK
+elseif ($modul == 'pemesanan-produk') {
+	include_once("layout/modul/pemesanan-produk/pemesanan-produk.php");
+}
+
+// DATA PEMESANAN MATERIAL
+elseif ($modul == 'pemesanan-material') {
+	include_once("layout/modul/pemesanan-material/pemesanan-material.php");
 }
 
 // DATA PENGADAAN

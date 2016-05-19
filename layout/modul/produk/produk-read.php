@@ -8,15 +8,16 @@
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Bahan Baku</th>
-				<th>Stok (Kg)</th>
+				<th>Kode Produk</th>
+				<th>Nama Produk</th>
+				<th>Stok (Buah)</th>
 				<th>Harga</th>
 				<th>Aksi</th>
 			</tr>
 		</thead>
 		<tbody class="body-table">
 			<?php
-				$sql = "SELECT * FROM bahan_baku";
+				$sql = "SELECT * FROM produk";
 				$query = mysql_query($sql);
 				$i = 0;
 				while($data = mysql_fetch_assoc($query))
@@ -24,14 +25,15 @@
 			?>
 			<tr>
 				<td><?php echo ($i+1) ?></td>
-				<td><?php echo $data['bahan_baku'] ?></td>
+				<td><?php echo $data['kode_produk'] ?></td>
+				<td><?php echo $data['nama_produk'] ?></td>
 				<td><?php echo $data['stok'] ?></td>
 				<td><?php echo $data['harga'] ?></td>
 				<td>
-					<a href="#dialog-bahan-baku" id="<?php echo $data['id_bahan_baku'] ?>" class="update" data-toggle="modal">
+					<a href="#dialog-produk" id="<?php echo $data['id_produk'] ?>" class="update" data-toggle="modal">
 						<i class="fa fa-pencil"></i>
 					</a>
-					<a href="#" id="<?php echo $data['id_bahan_baku'] ?>" class="hapus">
+					<a href="#" id="<?php echo $data['id_produk'] ?>" class="hapus">
 						<i class="fa fa-trash"></i>
 					</a>
 				</td>

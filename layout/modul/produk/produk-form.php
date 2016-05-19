@@ -14,19 +14,27 @@ $data = mysql_fetch_array(mysql_query("SELECT * FROM produk WHERE id_produk=".$i
 
 // jika id_produk  > 0 / form ubah data
 if($id_produk > 0) { 
+	$kode_produk	= $data['kode_produk'];
 	$nama_produk	= $data['nama_produk'];
 	$stok = $data['stok'];
 	$harga = $data['harga'];
 
 //form tambah data
 } else {
+	$kode_produk	= "";
 	$nama_produk	= "";
 	$stok = "";
 	$harga = "";
 }
 ?>
-<form id="form-produksi" class="form-horizontal" autocomplete="off" >
+<form id="form-produk" class="form-horizontal" autocomplete="off" >
 	<div class="form-body">
+		<div class="form-group">
+			<label class="col-md-3 control-label">Kode Produk <i class="asterisk">*</i></label>
+			<div class="col-md-9">
+				<input type="text" name="kode_produk" class="form-control" placeholder="Kode Produk" required value="<?php echo $kode_produk ?>" <?php echo ($id_produk != 0)?"readonly='readonly'":"" ?>>
+			</div>
+		</div>
 		<div class="form-group">
 			<label class="col-md-3 control-label">Nama Produk <i class="asterisk">*</i></label>
 			<div class="col-md-9">

@@ -20,6 +20,11 @@
 					</span>
 				</a>
 			</li>
+			<!-- ======================== MENU ADMIN ======================== -->
+			<?php
+				if ($_SESSION['role'] == "admin") {
+				
+			?>
 			<li class="start <?php echo ($modul == 'user')?"active":'';  ?>">
 				<a href="user">
 					<i class="fa fa-users"></i>
@@ -28,7 +33,7 @@
 					</span>
 				</a>
 			</li>
-			<li class="start <?php echo ($modul == 'sales')?"active":'';  ?>">
+			<!-- <li class="start <?php echo ($modul == 'sales')?"active":'';  ?>">
 				<a href="sales">
 					<i class="fa fa-users"></i>
 					<span class="title">
@@ -51,40 +56,98 @@
 						Data Karyawan
 					</span>
 				</a>
-			</li>
+			</li> -->
 			<li class="start <?php echo ($modul == 'kendaraan')?"active":'';  ?>">
 				<a href="kendaraan">
-					<i class="fa fa-database"></i>
+					<i class="fa fa-truck"></i>
 					<span class="title">
 						Data Kendaraan
 					</span>
 				</a>
 			</li>
-			<li class="start <?php echo ($modul == 'bahan-baku')?"active":'';  ?>">
-				<a href="bahan-baku">
+			<?php
+				}
+			?>
+			<!-- ======================== END MENU ADMIN ======================== -->
+			
+			<!-- ======================== MENU PERSEDIAAN MATERIAL ======================== -->
+			
+			<?php
+				if ($_SESSION['role'] == "kepala_gudang" || $_SESSION['role'] == "manager") {
+				
+			?>
+			<li class="start <?php echo ($modul == 'material')?"active":'';  ?>">
+				<a href="material">
 					<i class="fa fa-puzzle-piece"></i>
 					<span class="title">
-						Persediaan Bahan Baku
+						Persediaan Material
 					</span>
 				</a>
 			</li>
-			<li class="start <?php echo ($modul == 'produksi')?"active":'';  ?>">
-				<a href="produksi">
+			<?php
+				}
+			?>
+			<!-- ======================== END MENU PERSEDIAAN MATERIAL ======================== -->
+
+			<!-- ======================== MENU PERSEDIAAN PRODUKSI ======================== -->
+			<?php
+				if ($_SESSION['role'] == "kepala_gudang" || $_SESSION['role'] == "manager") {
+				
+			?>
+			<li class="start <?php echo ($modul == 'produk')?"active":'';  ?>">
+				<a href="produk">
 					<i class="fa fa-puzzle-piece"></i>
 					<span class="title">
-						Persediaan Produksi
+						Persediaan Produk
 					</span>
 				</a>
 			</li>
-			<li class="start <?php echo ($modul == 'pemesanan')?"active":'';  ?>">
-				<a href="pemesanan">
+			<?php
+				}
+			?>
+			<!-- ======================== END MENU PERSEDIAAN PRODUKSI ======================== -->
+
+			<!-- ======================== MENU PEMESANAN PRODUK ======================== -->
+			<?php
+				if ($_SESSION['role'] == "sales" || $_SESSION['role'] == "manager") {
+				
+			?>
+			<li class="start <?php echo ($modul == 'pemesanan-produk')?"active":'';  ?>">
+				<a href="pemesanan-produk">
 					<i class="fa fa-shopping-cart"></i>
 					<span class="title">
-						Pemesanan
+						Pemesanan Produk
 					</span>
 				</a>
 			</li>
+			<?php
+				}
+			?>
+			<!-- ======================== END MENU PEMESANAN PRODUK ======================== -->
 			
+			<!-- ======================== MENU PEMESANAN MATERIAL ======================== -->
+			<?php
+				if ($_SESSION['role'] == "staff" || $_SESSION['role'] == "manager") {
+				
+			?>
+			<li class="start <?php echo ($modul == 'pemesanan-material')?"active":'';  ?>">
+				<a href="pemesanan-material">
+					<i class="fa fa-shopping-cart"></i>
+					<span class="title">
+						Pemesanan Material
+					</span>
+				</a>
+			</li>
+			<?php
+				}
+			?>
+			<!-- ======================== END MENU PEMESANAN MATERIAL ======================== -->
+
+			<!-- ======================== MENU PENGADAAN ======================== -->
+			<?php
+				if ($_SESSION['role'] == "adaw") {
+				
+			?>
 			<li class="start <?php echo ($modul == 'pengadaan')?"active":'';  ?>">
 				<a href="pengadaan">
 					<i class="fa fa-shopping-cart"></i>
@@ -93,6 +156,16 @@
 					</span>
 				</a>
 			</li>
+			<?php
+				}
+			?>
+			<!-- ======================== END MENU PENGADAAN ======================== -->
+
+			<!-- ======================== END MENU PENGIRIMAN ======================== -->
+			<?php
+				if ($_SESSION['role'] == "kepala_gudang") {
+				
+			?>
 			<li class="start <?php echo ($modul == 'pengiriman')?"active":'';  ?>">
 				<a href="pengiriman">
 					<i class="fa fa-truck"></i>
@@ -101,6 +174,10 @@
 					</span>
 				</a>
 			</li>
+			<?php
+				}
+			?>
+			<!-- ======================== END MENU PENGIRIMAN ======================== -->
 			
 			<li class="start ">
 				<a href="logout-code.php">
@@ -114,4 +191,4 @@
 		<!-- END SIDEBAR MENU -->
 	</div>
 </div>
-<!-- END SIDEBAR -->
+<!-- END SIDEBAR
